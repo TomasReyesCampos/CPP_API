@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CPPModelStoreContainer" CdmEntityContainer="CPPEntity">
+    <EntitySetMapping Name="estado_remision">
+      <EntityTypeMapping TypeName="CPPModel.estado_remision">
+        <MappingFragment StoreEntitySet="estado_remision">
+          <ScalarProperty Name="estado_remision_id" ColumnName="estado_remision_id" />
+          <ScalarProperty Name="estado_remision1" ColumnName="estado_remision" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="forma_pago">
+      <EntityTypeMapping TypeName="CPPModel.forma_pago">
+        <MappingFragment StoreEntitySet="forma_pago">
+          <ScalarProperty Name="forma_pago_id" ColumnName="forma_pago_id" />
+          <ScalarProperty Name="forma_pago1" ColumnName="forma_pago" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proveedors">
+      <EntityTypeMapping TypeName="CPPModel.proveedor">
+        <MappingFragment StoreEntitySet="proveedor">
+          <ScalarProperty Name="proveedor_id" ColumnName="proveedor_id" />
+          <ScalarProperty Name="forma_pago_id" ColumnName="forma_pago_id" />
+          <ScalarProperty Name="tipo_proveedor_id" ColumnName="tipo_proveedor_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="codig_postal" ColumnName="codig_postal" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="dias_credito" ColumnName="dias_credito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proveedor_contacto">
+      <EntityTypeMapping TypeName="CPPModel.proveedor_contacto">
+        <MappingFragment StoreEntitySet="proveedor_contacto">
+          <ScalarProperty Name="proveedor_id" ColumnName="proveedor_id" />
+          <ScalarProperty Name="contacto_id" ColumnName="contacto_id" />
+          <ScalarProperty Name="tipo_contacto_id" ColumnName="tipo_contacto_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="remisions">
+      <EntityTypeMapping TypeName="CPPModel.remision">
+        <MappingFragment StoreEntitySet="remision">
+          <ScalarProperty Name="remision_id" ColumnName="remision_id" />
+          <ScalarProperty Name="proveedor_id" ColumnName="proveedor_id" />
+          <ScalarProperty Name="estado_remision_id" ColumnName="estado_remision_id" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="fecha_remision" ColumnName="fecha_remision" />
+          <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursals">
+      <EntityTypeMapping TypeName="CPPModel.sucursal">
+        <MappingFragment StoreEntitySet="sucursal">
+          <ScalarProperty Name="sucursal_id" ColumnName="sucursal_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="encargado" ColumnName="encargado" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_contacto">
+      <EntityTypeMapping TypeName="CPPModel.tipo_contacto">
+        <MappingFragment StoreEntitySet="tipo_contacto">
+          <ScalarProperty Name="tipo_contacto_id" ColumnName="tipo_contacto_id" />
+          <ScalarProperty Name="tipo_contacto1" ColumnName="tipo_contacto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_proveedor">
+      <EntityTypeMapping TypeName="CPPModel.tipo_proveedor">
+        <MappingFragment StoreEntitySet="tipo_proveedor">
+          <ScalarProperty Name="tipo_proveedor_id" ColumnName="tipo_proveedor_id" />
+          <ScalarProperty Name="tipo_proveedor1" ColumnName="tipo_proveedor" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

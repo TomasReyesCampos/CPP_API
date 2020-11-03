@@ -1,0 +1,8 @@
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\bin\Release\netcoreapp3.1\CPP.Entities.deps.json
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\bin\Release\netcoreapp3.1\CPP.Entities.dll
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\bin\Release\netcoreapp3.1\CPP.Entities.pdb
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Release\netcoreapp3.1\CPP.Entities.csprojAssemblyReference.cache
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Release\netcoreapp3.1\CPP.Entities.AssemblyInfoInputs.cache
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Release\netcoreapp3.1\CPP.Entities.AssemblyInfo.cs
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Release\netcoreapp3.1\CPP.Entities.dll
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Release\netcoreapp3.1\CPP.Entities.pdb

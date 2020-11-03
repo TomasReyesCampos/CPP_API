@@ -1,0 +1,14 @@
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\bin\Release\netcoreapp3.1\CPP.Repository.deps.json
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\bin\Release\netcoreapp3.1\CPP.Repository.runtimeconfig.json
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\bin\Release\netcoreapp3.1\CPP.Repository.runtimeconfig.dev.json
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\bin\Release\netcoreapp3.1\CPP.Repository.dll
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\bin\Release\netcoreapp3.1\CPP.Repository.pdb
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\bin\Release\netcoreapp3.1\CPP.Entities.dll
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\bin\Release\netcoreapp3.1\CPP.Entities.pdb
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Release\netcoreapp3.1\CPP.Repository.csprojAssemblyReference.cache
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Release\netcoreapp3.1\CPP.Repository.AssemblyInfoInputs.cache
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Release\netcoreapp3.1\CPP.Repository.AssemblyInfo.cs
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Release\netcoreapp3.1\CPP.Repository.csproj.CopyComplete
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Release\netcoreapp3.1\CPP.Repository.dll
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Release\netcoreapp3.1\CPP.Repository.pdb
+C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Release\netcoreapp3.1\CPP.Repository.genruntimeconfig.cache

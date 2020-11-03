@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="estado_remision">
+    <Key>
+      <PropertyRef Name="estado_remision_id" />
+    </Key>
+    <Property Name="estado_remision_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estado_remision1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="remisions" Relationship="Self.FK_remision_estado_remision" FromRole="estado_remision" ToRole="remision" />
+  </EntityType>
+  <EntityType Name="forma_pago">
+    <Key>
+      <PropertyRef Name="forma_pago_id" />
+    </Key>
+    <Property Name="forma_pago_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="forma_pago1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="proveedors" Relationship="Self.FK_proveedor_forma_pago" FromRole="forma_pago" ToRole="proveedor" />
+  </EntityType>
+  <EntityType Name="proveedor">
+    <Key>
+      <PropertyRef Name="proveedor_id" />
+    </Key>
+    <Property Name="proveedor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="forma_pago_id" Type="Int32" />
+    <Property Name="tipo_proveedor_id" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rfc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codig_postal" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="dias_credito" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="forma_pago" Relationship="Self.FK_proveedor_forma_pago" FromRole="proveedor" ToRole="forma_pago" />
+    <NavigationProperty Name="remisions" Relationship="Self.FK_remision_proveedor" FromRole="proveedor" ToRole="remision" />
+    <NavigationProperty Name="proveedor_contacto" Relationship="CPPModel.FK_proveedor_contacto_proveedor" FromRole="proveedor" ToRole="proveedor_contacto" />
+  </EntityType>
+  <EntityType Name="proveedor_contacto">
+    <Key>
+      <PropertyRef Name="contacto_id" />
+    </Key>
+    <Property Name="contacto_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_contacto_id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="tipo_contacto" Relationship="Self.FK_proveedor_contacto_tipo_contacto" FromRole="proveedor_contacto" ToRole="tipo_contacto" />
+    <Property Name="proveedor_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="proveedor" Relationship="CPPModel.FK_proveedor_contacto_proveedor" FromRole="proveedor_contacto" ToRole="proveedor" />
+  </EntityType>
+  <EntityType Name="remision">
+    <Key>
+      <PropertyRef Name="remision_id" />
+    </Key>
+    <Property Name="remision_id" Type="Int32" Nullable="false" />
+    <Property Name="proveedor_id" Type="Int32" Nullable="false" />
+    <Property Name="estado_remision_id" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Double" />
+    <Property Name="fecha_remision" Type="DateTime" Precision="0" />
+    <Property Name="fecha_pago" Type="DateTime" Precision="0" />
+    <Property Name="comentarios" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="estado_remision" Relationship="Self.FK_remision_estado_remision" FromRole="remision" ToRole="estado_remision" />
+    <NavigationProperty Name="proveedor" Relationship="Self.FK_remision_proveedor" FromRole="remision" ToRole="proveedor" />
+  </EntityType>
+  <EntityType Name="sucursal">
+    <Key>
+      <PropertyRef Name="sucursal_id" />
+    </Key>
+    <Property Name="sucursal_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="encargado" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tipo_contacto">
+    <Key>
+      <PropertyRef Name="tipo_contacto_id" />
+    </Key>
+    <Property Name="tipo_contacto_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_contacto1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="proveedor_contacto" Relationship="Self.FK_proveedor_contacto_tipo_contacto" FromRole="tipo_contacto" ToRole="proveedor_contacto" />
+  </EntityType>
+  <EntityType Name="tipo_proveedor">
+    <Key>
+      <PropertyRef Name="tipo_proveedor_id" />
+    </Key>
+    <Property Name="tipo_proveedor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_proveedor1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_remision_estado_remision">
+    <End Role="estado_remision" Type="Self.estado_remision" Multiplicity="1" />
+    <End Role="remision" Type="Self.remision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado_remision">
+        <PropertyRef Name="estado_remision_id" />
+      </Principal>
+      <Dependent Role="remision">
+        <PropertyRef Name="estado_remision_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_proveedor_forma_pago">
+    <End Role="forma_pago" Type="Self.forma_pago" Multiplicity="0..1" />
+    <End Role="proveedor" Type="Self.proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_pago">
+        <PropertyRef Name="forma_pago_id" />
+      </Principal>
+      <Dependent Role="proveedor">
+        <PropertyRef Name="forma_pago_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_remision_proveedor">
+    <End Role="proveedor" Type="Self.proveedor" Multiplicity="1" />
+    <End Role="remision" Type="Self.remision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proveedor">
+        <PropertyRef Name="proveedor_id" />
+      </Principal>
+      <Dependent Role="remision">
+        <PropertyRef Name="proveedor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_proveedor_contacto_tipo_contacto">
+    <End Role="tipo_contacto" Type="Self.tipo_contacto" Multiplicity="1" />
+    <End Role="proveedor_contacto" Type="Self.proveedor_contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_contacto">
+        <PropertyRef Name="tipo_contacto_id" />
+      </Principal>
+      <Dependent Role="proveedor_contacto">
+        <PropertyRef Name="tipo_contacto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CPPEntity" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="estado_remision" EntityType="Self.estado_remision" />
+    <EntitySet Name="forma_pago" EntityType="Self.forma_pago" />
+    <EntitySet Name="proveedors" EntityType="Self.proveedor" />
+    <EntitySet Name="proveedor_contacto" EntityType="Self.proveedor_contacto" />
+    <EntitySet Name="remisions" EntityType="Self.remision" />
+    <EntitySet Name="sucursals" EntityType="Self.sucursal" />
+    <EntitySet Name="tipo_contacto" EntityType="Self.tipo_contacto" />
+    <EntitySet Name="tipo_proveedor" EntityType="Self.tipo_proveedor" />
+    <AssociationSet Name="FK_remision_estado_remision" Association="Self.FK_remision_estado_remision">
+      <End Role="estado_remision" EntitySet="estado_remision" />
+      <End Role="remision" EntitySet="remisions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_proveedor_forma_pago" Association="Self.FK_proveedor_forma_pago">
+      <End Role="forma_pago" EntitySet="forma_pago" />
+      <End Role="proveedor" EntitySet="proveedors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_remision_proveedor" Association="Self.FK_remision_proveedor">
+      <End Role="proveedor" EntitySet="proveedors" />
+      <End Role="remision" EntitySet="remisions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_proveedor_contacto_tipo_contacto" Association="Self.FK_proveedor_contacto_tipo_contacto">
+      <End Role="tipo_contacto" EntitySet="tipo_contacto" />
+      <End Role="proveedor_contacto" EntitySet="proveedor_contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_proveedor_contacto_proveedor" Association="CPPModel.FK_proveedor_contacto_proveedor">
+      <End Role="proveedor" EntitySet="proveedors" />
+      <End Role="proveedor_contacto" EntitySet="proveedor_contacto" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_proveedor_contacto_proveedor">
+    <End Type="CPPModel.proveedor" Role="proveedor" Multiplicity="1" />
+    <End Type="CPPModel.proveedor_contacto" Role="proveedor_contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proveedor">
+        <PropertyRef Name="proveedor_id" />
+      </Principal>
+      <Dependent Role="proveedor_contacto">
+        <PropertyRef Name="proveedor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

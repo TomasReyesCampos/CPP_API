@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200713033437_AddSucursalTable.cs" />
+    <Compile Remove="Migrations\20200713033437_AddSucursalTable.Designer.cs" />
+    <Compile Remove="Migrations\20200713035140_AddTipoContactoProveeedorTable.cs" />
+    <Compile Remove="Migrations\20200713035140_AddTipoContactoProveeedorTable.Designer.cs" />
+    <Compile Remove="Migrations\20200713045331_AddProveedorContactoLista.cs" />
+    <Compile Remove="Migrations\20200713045331_AddProveedorContactoLista.Designer.cs" />
+    <Compile Remove="Migrations\20200713045423_AddProveedorContactoLista.cs" />
+    <Compile Remove="Migrations\20200713045423_AddProveedorContactoLista.Designer.cs" />
+    <Compile Remove="Migrations\20200713045506_AddProveedorContactoLista.cs" />
+    <Compile Remove="Migrations\20200713045506_AddProveedorContactoLista.Designer.cs" />
+    <Compile Remove="Migrations\20200713045607_AddProveedorContactoReference.cs" />
+    <Compile Remove="Migrations\20200713045607_AddProveedorContactoReference.Designer.cs" />
+    <Compile Remove="Migrations\20201025222059_addFechaAltaremision.cs" />
+    <Compile Remove="Migrations\20201025222059_addFechaAltaremision.Designer.cs" />
+    <Compile Remove="Migrations\20201027221253_addTableOrdenes.cs" />
+    <Compile Remove="Migrations\20201027221253_addTableOrdenes.Designer.cs" />
+    <Compile Remove="Migrations\20201028042453_updateOrdenIdRemision.cs" />
+    <Compile Remove="Migrations\20201028042453_updateOrdenIdRemision.Designer.cs" />
+    <Compile Remove="Migrations\20201028051023_removeestadoOrdenUniqueId.cs" />
+    <Compile Remove="Migrations\20201028051023_removeestadoOrdenUniqueId.Designer.cs" />
+    <Compile Remove="Migrations\20201028063201_testing2.cs" />
+    <Compile Remove="Migrations\20201028063201_testing2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CPP.Entities\CPP.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
