@@ -89,13 +89,14 @@ namespace CPP.Api.Controllers
                     dto.error = $"La fecha de remisión no puede ser mayor a la fecha actual";
                     return BadRequest(dto);
                 }
+
                 var itemEntity = _mapper.Map<Remision>(itemDto);                
                 var proveedor = await _proveedorRepository.GetProveedorPorId(itemDto.proveedor_id);
                 itemEntity.estado_remision_id = 1;
-               // itemEntity.fecha_alta = DateTime.Now;
                 itemEntity.fecha_pago = itemDto.fecha_remision.AddDays(proveedor.dias_credito);
                 itemEntity.comentarios = itemDto.comentarios == null ? "" : itemDto.comentarios;
                 _baseRepository.Add(itemEntity);
+
                 if (await _baseRepository.SaveChangesAsync())
                 {
                     return Ok(_mapper.Map<RemisionDto>(itemEntity));
@@ -116,7 +117,6 @@ namespace CPP.Api.Controllers
             try
             {
                 var itemOld = await _repository.GetRemisionNoDtoPorId(itemDto.Id);
-
                 if (itemOld == null)
                 {
                     itemOld = new Remision();
@@ -148,8 +148,7 @@ namespace CPP.Api.Controllers
             try
             {
                 var itemOld = await _repository.GetRemisionNoDtoPorId(id);
-
-
+                
                 if (itemOld == null)
                 {
                     return NotFound($"No existe la remisión en la base de datos.");
@@ -166,7 +165,6 @@ namespace CPP.Api.Controllers
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
-
             return BadRequest("An error ocurrs trying to delete a size");
         }
     }

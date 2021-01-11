@@ -31,5 +31,7 @@ namespace CPP.Entities.Data
         public bool activo { get; set; }
         public virtual Sucursal sucursal { get; set; }
  
+        [NotMapped]
+        public bool testing { get; set; }
     }
 }
