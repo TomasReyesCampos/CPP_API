@@ -12,4 +12,3 @@ C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\De
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Debug\netcoreapp3.1\CPP.Repository.dll
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Debug\netcoreapp3.1\CPP.Repository.pdb
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Debug\netcoreapp3.1\CPP.Repository.genruntimeconfig.cache
-C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Repository\obj\Debug\netcoreapp3.1\CPP.Repository.csproj.CoreCompileInputs.cache

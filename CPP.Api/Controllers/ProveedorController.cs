@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Routing;
 namespace CPP.Api.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController]    
     public class ProveedorController : ControllerBase
     {
         private readonly IProveedorRepository _repository;
@@ -34,7 +34,6 @@ namespace CPP.Api.Controllers
             _generator = generator;
             _baseRepository = baseRepository;
         }
-
 
         [HttpGet]
         [AllowAnonymous]
@@ -83,9 +82,9 @@ namespace CPP.Api.Controllers
 
                 if (tipoOld != null)
                 {
-                    return BadRequest($"Ya existe un tipo de proveedor con el nombre de : {proveedor.nombre}, en la base de datos.");
+                    proveedor.error = $"Ya existe un tipo de proveedor con el nombre de : {proveedor.nombre}, en la base de datos.";
+                    return BadRequest(proveedor);
                 }
-
 
                 if (tipoOld == null)
                 {
@@ -145,15 +144,25 @@ namespace CPP.Api.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<ActionResult<ProveedorDto>> Delete(int id)
         {
             try
             {
+                var proveedorDto = new ProveedorDto();
                 var itemOld = await _repository.GetProveedorPorId(id);
 
                 if (itemOld == null)
                 {
-                    return NotFound($"No existe el proveedor en la base de datos.");
+                    proveedorDto.error = $"No existe el proveedor en la base de datos.";
+                    return BadRequest(proveedorDto);
+                }
+
+                var ordenes = await _repository.GetOrdenesPorProveedor(id);
+
+                if (ordenes.Any())
+                {
+                    proveedorDto.error = $"El proveedor no se puede eliminar porque tiene {ordenes.Count()} ordenes relacionadas";
+                    return BadRequest(proveedorDto);
                 }
 
                 _baseRepository.Delete(itemOld);

@@ -16,6 +16,7 @@ namespace CPP.Entities.Dtos
         public int dias_credito { get; set; }
         public bool activo { get; set; }
         public int forma_pago_id { get; set; }
-        public int tipo_proveedor_id { get; set; } 
+        public int tipo_proveedor_id { get; set; }
+        public string correo { get; set; }   
     }
 }

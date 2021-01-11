@@ -44,6 +44,7 @@ namespace CPP.Api
             services.AddScoped<IBaseRepository, BaseRepository>();
             services.AddScoped<IOrdenesRepository, OrdenesRespository>();
             services.AddScoped<IReportesRepository, ReportesRepository>();
+            services.AddScoped<IUsuarioRepostory, UsuarioRepository>();
 
             services.AddCors(options =>
             {

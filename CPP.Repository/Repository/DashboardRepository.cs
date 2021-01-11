@@ -37,7 +37,8 @@ namespace CPP.Repository.Repository
                                                   fecha_credito = r.fecha_pago.AddDays(prov.dias_credito),
                                                   forma_pago = fp.forma_pago,
                                                   estado_id = er.Id,
-                                                  fecha_real_pago = r.fecha_real_pago
+                                                  fecha_real_pago = r.fecha_real_pago,
+                                                  monto = r.cantidad
                                               });
 
             return await query.ToArrayAsync();

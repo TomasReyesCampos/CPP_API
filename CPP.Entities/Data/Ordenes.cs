@@ -42,5 +42,7 @@ namespace CPP.Entities.Data
 
         [NotMapped]
         public string usuario { get; set; }
+
+        public string usuario_autoriza { get; set; }
     }
 }

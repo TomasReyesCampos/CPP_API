@@ -21,6 +21,16 @@ namespace CPP.Repository.Repository
             this._context = context;
         }
 
+        public async Task<TipoProveedor[]> GetProveedoresPorTipoProveedor(int id)
+        {
+            IQueryable<TipoProveedor> query = (from p in _context.proveedor
+                                               join tp in _context.tipo_proveedor on p.tipo_proveedor_id equals tp.Id
+                                               where tp.Id == id
+                                               select tp);
+
+            return await query.ToArrayAsync();
+        }
+
         public async Task<TipoProveedor[]> GetTipoProveedor()
         {
             IQueryable<TipoProveedor> query = (from s in _context.tipo_proveedor

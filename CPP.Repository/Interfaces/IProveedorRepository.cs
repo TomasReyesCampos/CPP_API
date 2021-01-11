@@ -11,5 +11,6 @@ namespace CPP.Repository.Interfaces
         Task<Proveedor[]> GetProveedor();
         Task<Proveedor> GetProveedorPorId(int id);
         Task<Proveedor> GetProveedorNombre(string nombre);
+        Task<Proveedor[]> GetOrdenesPorProveedor(int id);
     }
 }

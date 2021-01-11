@@ -66,7 +66,6 @@ namespace CPP.Api.Controllers
 
                 if (result == null)
                 {
-
                     return NotFound();
                 }
 
@@ -84,7 +83,12 @@ namespace CPP.Api.Controllers
         {
             try
             {
-                if (itemDto.fecha_remision > DateTime.Now) return BadRequest("La fecha de remisión no puede ser mayor a la fecha actual");
+                if (itemDto.fecha_remision > DateTime.Now)
+                {
+                    var dto = new RemisionDto();
+                    dto.error = $"La fecha de remisión no puede ser mayor a la fecha actual";
+                    return BadRequest(dto);
+                }
                 var itemEntity = _mapper.Map<Remision>(itemDto);                
                 var proveedor = await _proveedorRepository.GetProveedorPorId(itemDto.proveedor_id);
                 itemEntity.estado_remision_id = 1;
@@ -111,14 +115,23 @@ namespace CPP.Api.Controllers
         {
             try
             {
-                var itemOld = await _repository.GetRemisionPorId(itemDto.Id);
+                var itemOld = await _repository.GetRemisionNoDtoPorId(itemDto.Id);
 
                 if (itemOld == null)
                 {
-                    return NotFound($"La remision {itemDto.Id}, no existe en la base de datos.");
+                    itemOld = new Remision();
+                    itemOld.error = $"La remision {itemDto.Id}, no existe en la base de datos.";
+                    return BadRequest(itemOld);
                 }
 
-                 _mapper.Map(itemDto, itemOld);
+                if (itemDto.fecha_remision > DateTime.Now) {
+                    itemOld.error = $"La fecha de remisión no puede ser mayor a la fecha actual";
+                    return BadRequest(itemOld);
+                } 
+
+                var proveedor = await _proveedorRepository.GetProveedorPorId(itemDto.proveedor_id);
+                itemOld.fecha_pago = itemDto.fecha_remision.AddDays(proveedor.dias_credito);
+                _mapper.Map(itemDto, itemOld);
 
                 var updated = await _baseRepository.SaveChangesAsync();
                 return Ok(_mapper.Map<RemisionDto>(itemOld));

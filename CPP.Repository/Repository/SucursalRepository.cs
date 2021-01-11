@@ -19,6 +19,16 @@ namespace CPP.Repository.Repository
             this._context = context;
         }
 
+        public async Task<Sucursal[]> GetOrdenesPorSucursal(int id)
+        {
+            IQueryable<Sucursal> query = (from r in _context.remision 
+                                          join s in _context.sucursal on r.sucursal_id equals s.Id
+                                          where s.Id == id
+                                          select s);
+
+            return await query.ToArrayAsync();
+        }
+
         public async Task<Sucursal[]> GetSucursal()
         {
             IQueryable<Sucursal> query = (from s in _context.sucursal

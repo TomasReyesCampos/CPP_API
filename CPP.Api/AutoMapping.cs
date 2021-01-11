@@ -26,10 +26,15 @@ namespace CPP.Api
             //Remision 
             CreateMap<RemisionAltaDto, Remision>();
             CreateMap<Remision, RemisionAltaDto>();
+            CreateMap<RemisionAltaDto, RemisionDto>();
+            CreateMap<RemisionDto, RemisionAltaDto>();
             CreateMap<Remision, RemisionDto>();
             CreateMap<RemisionDto, Remision>();
 
-            CreateMap<OrdenPagarDto, Ordenes>();
+
+            //usuario 
+            CreateMap<UsuarioDto, Usuario>();
+            CreateMap<Usuario, UsuarioDto>();
         }
 
     }

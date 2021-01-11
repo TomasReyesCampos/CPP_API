@@ -16,18 +16,18 @@ namespace CPP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SucursalController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
-        private readonly ISucursalRepository _repository;
+        private readonly IUsuarioRepostory _repository;
         private readonly IBaseRepository _baseRepository;
         private readonly IMapper _mapper;
         private readonly LinkGenerator _generator;
 
-        public SucursalController(
-                      ISucursalRepository repository,
-                      IMapper mapper,
-                      IBaseRepository baseRepository,
-                      LinkGenerator generator)
+        public UsuarioController(
+                   IUsuarioRepostory repository,
+                   IMapper mapper,
+                   IBaseRepository baseRepository,
+                   LinkGenerator generator)
         {
             _repository = repository;
             _mapper = mapper;
@@ -35,14 +35,13 @@ namespace CPP.Api.Controllers
             _baseRepository = baseRepository;
         }
 
-
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<Sucursal[]>> GetAsync()
+        public async Task<ActionResult<UsuarioDto[]>> GetAsync()
         {
             try
             {
-                var results = await _repository.GetSucursal();                
+                var results = await _repository.GetUsuarios();
                 return Ok(results);
             }
             catch (Exception err)
@@ -50,43 +49,21 @@ namespace CPP.Api.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "DataBase Failure " + err.Message);
             }
         }
-        
+
         [HttpGet]
         [AllowAnonymous]
-        [Route("ObtenerSucursalPorId")]
-        public async Task<ActionResult<Sucursal>> GetByIdAsync([FromQuery]int id)
+        [Route("ObtenerUsuarioPorId")]
+        public async Task<ActionResult<Usuario>> GetByIdAsync([FromQuery]int id)
         {
             try
             {
-                var result = await _repository.GetSucursalPorId(id);
+                var result = await _repository.GetUsuarioById(id);
 
-                if (result == null)                {
-                    
+                if (result == null)
+                {
                     return NotFound();
                 }
- 
-                return Ok(result);
-            }
-            catch (Exception err)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "DataBase Failure " + err.Message);
-            }
-        }
-        
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("SucursalPorNombre")]
-        public async Task<ActionResult<Sucursal>> GetByNameAsync([FromQuery] string nombre)
-        {
-            try
-            {
-                var result = await _repository.GetSucursalNombre(nombre);
 
-                if (result == null) {
-                     
-                    return NotFound();
-                }
-                 
                 return Ok(result);
             }
             catch (Exception err)
@@ -96,16 +73,16 @@ namespace CPP.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<SucursalDto>> Post([FromBody]SucursalDto tipoDto)
+        public async Task<ActionResult<UsuarioDto>> Post([FromBody]UsuarioDto tipoDto)
         {
             try
             {
-                var erroDto = new SucursalDto();
-                var tipoOld = await _repository.GetSucursalNombre(tipoDto.nombre);
+                var erroDto = new UsuarioDto();
+                var tipoOld = await _repository.GetUsuarioByName(tipoDto.user);
 
                 if (tipoOld != null)
                 {
-                    erroDto.error = $"Ya existe una sucursal con el nombre de : {tipoDto.nombre}, en la base de datos.";
+                    erroDto.error = $"Ya existe un usario con el user nombre de : {tipoDto.user}, en la base de datos.";
                     return BadRequest(erroDto);
                 }
 
@@ -115,14 +92,14 @@ namespace CPP.Api.Controllers
                     _baseRepository.Add(itemEntity);
                     if (await _baseRepository.SaveChangesAsync())
                     {
-                        return Ok(_mapper.Map<SucursalDto>(itemEntity));
+                        return Ok(_mapper.Map<UsuarioDto>(itemEntity));
                     }
                 }
                 else
                 {
                     if (await _baseRepository.SaveChangesAsync())
                     {
-                        return Ok(_mapper.Map<SucursalDto>(tipoDto));
+                        return Ok(_mapper.Map<UsuarioDto>(tipoDto));
                     }
                 }
             }
@@ -134,31 +111,34 @@ namespace CPP.Api.Controllers
             return BadRequest();
         }
 
+
         [HttpPost()]
-        [Route("ActualizarSucursal")]
-        public async Task<ActionResult<SucursalDto>> UpdateSucursal([FromBody]SucursalDto itemDto)
+        [Route("ActualizarUsuario")]
+        public async Task<ActionResult<UsuarioDto>> UpdateUsuario([FromBody]UsuarioDto itemDto)
         {
             try
             {
-                var itemOld = await _repository.GetSucursalPorId(itemDto.Id);
+                var erroDto = new UsuarioDto();
+                var itemOld = await _repository.GetUsuarioById(itemDto.Id);
 
                 if (itemOld == null)
                 {
-                    return NotFound($"La sucursal {itemDto.nombre}, no existe en la base de datos.");
+                    erroDto.error = $"El usuario {itemDto.nombre}, no existe en la base de datos.";
+                    return BadRequest(erroDto);
                 }
 
-                var itemName = await _repository.GetSucursalNombre(itemDto.nombre);
+                var userName = await _repository.GetUsuarioByName(itemDto.user);
 
-                if (itemName != null)
+                if (userName != null)
                 {
-                    itemDto.error = $"Ya existe una sucursal con el nombre de {itemDto.nombre}, en la base de datos.";
-                    if (itemName.Id != itemDto.Id) return BadRequest(itemDto);
+                    erroDto.error = $"Ya existe una usuario con el user de {itemDto.user}, en la base de datos.";
+                    if (userName.Id != itemDto.Id) return BadRequest(erroDto);
                 }
 
                 _mapper.Map(itemDto, itemOld);
 
                 var updated = await _baseRepository.SaveChangesAsync();
-                return Ok(_mapper.Map<SucursalDto>(itemOld));
+                return Ok(_mapper.Map<UsuarioDto>(itemOld));
             }
             catch (Exception ex)
             {
@@ -166,24 +146,28 @@ namespace CPP.Api.Controllers
             }
         }
 
+
         [HttpDelete("{id}")]
-        public async Task<ActionResult<SucursalDto>> Delete(int id)
+        public async Task<ActionResult<UsuarioDto>> Delete(int id)
         {
             try
             {
-                var itemOld = await _repository.GetSucursalPorId(id);
-                var dto = new SucursalDto();
+                var erroDto = new UsuarioDto();
+                var itemOld = await _repository.GetUsuarioById(id);
+
                 if (itemOld == null)
                 {
-                    return NotFound($"No existe la sucursal en la base de datos.");
+                    erroDto.error = $"El usuario {itemOld.user}, no existe en la base de datos.";
+                    return BadRequest(erroDto);
                 }
 
-                var remisiones = await _repository.GetOrdenesPorSucursal(id);
-                if (remisiones.Any()) {
+                //var remisiones = await _repository.GetOrdenesPorSucursal(id);
+                //if (remisiones.Any())
+                //{
 
-                    dto.error = $"No se puede eliminar la sucursal porque tiene {remisiones.Count()} remisiones relacionadas.";
-                    return BadRequest(dto);
-               }
+                //    dto.error = $"No se puede eliminar la sucursal porque tiene {remisiones.Count()} remisiones relacionadas.";
+                //    return BadRequest(dto);
+                //}
 
                 _baseRepository.Delete(itemOld);
 
@@ -199,5 +183,6 @@ namespace CPP.Api.Controllers
 
             return BadRequest("An error ocurrs trying to delete a size");
         }
+
     }
 }

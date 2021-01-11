@@ -40,6 +40,8 @@ namespace CPP.Entities.Data
         [Required]
         public string comentarios { get; set; }
 
+        [Required]
+        public string numero_remision { get; set; }
         public DateTime fecha_real_pago { get; set; }
 
         public bool activo { get; set; }
@@ -50,5 +52,8 @@ namespace CPP.Entities.Data
 
         public virtual Sucursal sucursal { get; set; }
         public virtual Ordenes orden { get; set; }
+
+        [NotMapped]
+        public string error { get; set; }
     }
 }

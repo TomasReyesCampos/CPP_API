@@ -133,4 +133,3 @@ C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Api\bin\Debug\net
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Api\obj\Debug\netcoreapp3.1\CPP.Api.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Api\obj\Debug\netcoreapp3.1\CPP.Api.csproj.CoreCompileInputs.cache

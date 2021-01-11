@@ -27,6 +27,8 @@
     <Compile Remove="Migrations\20201028051023_removeestadoOrdenUniqueId.Designer.cs" />
     <Compile Remove="Migrations\20201028063201_testing2.cs" />
     <Compile Remove="Migrations\20201028063201_testing2.Designer.cs" />
+    <Compile Remove="Migrations\20210107035043_AddUserTable.cs" />
+    <Compile Remove="Migrations\20210107035043_AddUserTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

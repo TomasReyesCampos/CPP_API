@@ -34,6 +34,8 @@ namespace CPP.Entities.Data
         [Required]
         public int dias_credito { get; set; }
 
+        public string correo { get; set; }
+
         public bool activo { get; set; }
         [Required]
 

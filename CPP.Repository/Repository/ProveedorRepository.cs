@@ -19,6 +19,29 @@ namespace CPP.Repository.Repository
             this._context = context;
         }
 
+        public async Task<Proveedor[]> GetOrdenesPorProveedor(int id)
+        {
+            IQueryable<Proveedor> query = (from s in _context.proveedor
+                                           join fp in _context.remision on s.Id equals fp.proveedor_id
+                                           where s.Id == id
+                                           select new Proveedor()
+                                           {
+                                               Id = s.Id,
+                                               activo = s.activo,                                              
+                                               codigo_postal = s.codigo_postal,
+                                               dias_credito = s.dias_credito,
+                                               direccion = s.direccion,
+                                               forma_pago_id = s.forma_pago_id,
+                                               tipo_proveedor_id = s.tipo_proveedor_id,
+                                               nombre = s.nombre,
+                                               rfc = s.rfc,
+                                               telefono = s.telefono,
+                                               correo = s.correo
+                                           }).AsNoTracking();
+
+            return await query.ToArrayAsync();
+        }
+
         public async Task<Proveedor[]> GetProveedor()
         {
             IQueryable<Proveedor> query = (from s in _context.proveedor
@@ -37,7 +60,8 @@ namespace CPP.Repository.Repository
                                                tipo_proveedor_id = s.tipo_proveedor_id,
                                                nombre = s.nombre,
                                                rfc = s.rfc,
-                                               telefono = s.telefono
+                                               telefono = s.telefono,
+                                               correo = s.correo
                                            }).AsNoTracking();                                        
                                              
             return await query.ToArrayAsync();
@@ -87,7 +111,8 @@ namespace CPP.Repository.Repository
                                                tipo_proveedor_id = s.tipo_proveedor_id,
                                                nombre = s.nombre,
                                                rfc = s.rfc,
-                                               telefono = s.telefono
+                                               telefono = s.telefono,
+                                               correo = s.correo
                                            });
 
             return await query.FirstOrDefaultAsync();

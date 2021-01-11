@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CPP.Entities.Dtos
 {
-    public class RemisionDto
+    public class RemisionDto : BaseDto
     {
         public int Id { get; set; }
         public int proveedor_id { get; set; }
@@ -28,6 +28,8 @@ namespace CPP.Entities.Dtos
         public string comentarios { get; set; }
 
         public bool activo { get; set; }
+
+        public string numero_remision { get; set; }
 
     }
 }

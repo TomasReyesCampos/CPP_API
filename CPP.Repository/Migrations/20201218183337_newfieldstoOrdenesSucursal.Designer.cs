@@ -4,14 +4,16 @@ using CPP.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CPP.Repository.Migrations
 {
     [DbContext(typeof(CPPContext))]
-    partial class CPPContextModelSnapshot : ModelSnapshot
+    [Migration("20201218183337_newfieldstoOrdenesSucursal")]
+    partial class newfieldstoOrdenesSucursal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,9 +138,6 @@ namespace CPP.Repository.Migrations
                     b.Property<string>("codigo_postal")
                         .HasColumnType("nvarchar(6)")
                         .HasMaxLength(6);
-
-                    b.Property<string>("correo")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("dias_credito")
                         .HasColumnType("int");
@@ -351,43 +350,6 @@ namespace CPP.Repository.Migrations
                     b.ToTable("tipo_proveedor");
                 });
 
-            modelBuilder.Entity("CPP.Entities.Data.Usuario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("usuario_id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("activo")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("nombre")
-                        .HasColumnName("nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("password")
-                        .HasColumnName("password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("rol_id")
-                        .HasColumnName("rol_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("sucursal_id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("user")
-                        .HasColumnName("usuario")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("sucursal_id");
-
-                    b.ToTable("usuario");
-                });
-
             modelBuilder.Entity("CPP.Entities.Data.Ordenes", b =>
                 {
                     b.HasOne("CPP.Entities.Data.EstadoOrden", "estado_remision")
@@ -451,15 +413,6 @@ namespace CPP.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CPP.Entities.Data.Sucursal", "sucursal")
-                        .WithMany()
-                        .HasForeignKey("sucursal_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CPP.Entities.Data.Usuario", b =>
-                {
                     b.HasOne("CPP.Entities.Data.Sucursal", "sucursal")
                         .WithMany()
                         .HasForeignKey("sucursal_id")

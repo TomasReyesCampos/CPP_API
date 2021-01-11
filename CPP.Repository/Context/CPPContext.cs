@@ -21,7 +21,7 @@ namespace CPP.Repository.Context
         public DbSet<Remision> remision { get; set; }
         public DbSet<Ordenes> orden { get; set; }
         public DbSet<EstadoOrden> estado_orden { get; set; }
-
+        public DbSet<Usuario> usuario { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FormaPago>()

@@ -4,14 +4,16 @@ using CPP.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CPP.Repository.Migrations
 {
     [DbContext(typeof(CPPContext))]
-    partial class CPPContextModelSnapshot : ModelSnapshot
+    [Migration("20210107035303_AddUserTable")]
+    partial class AddUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,9 +138,6 @@ namespace CPP.Repository.Migrations
                     b.Property<string>("codigo_postal")
                         .HasColumnType("nvarchar(6)")
                         .HasMaxLength(6);
-
-                    b.Property<string>("correo")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("dias_credito")
                         .HasColumnType("int");

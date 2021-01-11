@@ -11,5 +11,6 @@ namespace CPP.Repository.Interfaces
         Task<Sucursal[]> GetSucursal();
         Task<Sucursal> GetSucursalPorId(int id);
         Task<Sucursal> GetSucursalNombre(string nombre);
+        Task<Sucursal[]> GetOrdenesPorSucursal(int id);
     }
 }

@@ -15,6 +15,8 @@ namespace CPP.Entities.Dtos
 
         public string forma_pago { get; set; }
 
+        public float monto { get; set; }
+
         public DateTime fecha_alta { get; set; }
 
         public DateTime fecha_credito { get; set; }

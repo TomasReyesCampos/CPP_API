@@ -179,15 +179,24 @@ namespace CPP.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<ActionResult<TipoProveedorDto>> Delete(int id)
         {
             try
             {
+                var dto = new TipoProveedorDto();
                 var itemOld = await _repository.GetTipoProveedorPorId(id);
 
                 if (itemOld == null)
                 {
                     return NotFound($"No existe el tipo de proveedor en la base de datos.");
+                }
+
+                var proveedores = await _repository.GetProveedoresPorTipoProveedor(id);
+
+                if (proveedores.Any())
+                {
+                    dto.error = $"El tipo de proveedor no se puede eliminar porque tiene {proveedores.Count()} proveedores relacionados.";
+                    return BadRequest(dto);
                 }
 
                 _baseRepository.Delete(itemOld);
@@ -202,7 +211,7 @@ namespace CPP.Api.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
 
-            return BadRequest("An error ocurrs trying to delete a size");
+            return BadRequest("An error ocurrs trying to delete the record");
         }
     }
 }

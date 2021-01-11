@@ -16,6 +16,9 @@ namespace CPP.Entities.Dtos
 
         public string numero_cheque { get; set; }
 
+        public DateTime fecha_pago { get; set; }
+
+        public string usuario_autoriza { get; set; }
         public string comentarios { get; set; }
     }
 }

@@ -20,6 +20,13 @@ namespace CPP.Entities.Data
         [StringLength(150)]
         public string encargado { get; set; }
 
+        [Required]
+        [StringLength(250)]
+        public string direccion { get; set; }
+
+        [Required]
+        [StringLength(25)]
+        public string telefono { get; set; }
         public bool activo { get; set; }
     }
 }

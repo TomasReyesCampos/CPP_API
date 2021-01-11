@@ -16,6 +16,8 @@ namespace CPP.Entities.Dtos
         public DateTime fecha_remision { get; set; }  
 
         public string comentarios { get; set; }
- 
+
+        public string numero_remision { get; set; }
+
     }
 }

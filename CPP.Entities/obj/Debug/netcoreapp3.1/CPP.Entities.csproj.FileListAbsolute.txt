@@ -6,4 +6,3 @@ C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Debu
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Debug\netcoreapp3.1\CPP.Entities.dll
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Debug\netcoreapp3.1\CPP.Entities.pdb
 C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Debug\netcoreapp3.1\CPP.Entities.csprojAssemblyReference.cache
-C:\Users\ignacio.mariscal\Documents\Personal\Ortiz\CPP.Api\CPP.Entities\obj\Debug\netcoreapp3.1\CPP.Entities.csproj.CoreCompileInputs.cache
