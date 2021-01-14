@@ -79,8 +79,7 @@ namespace CPP.Repository.Repository
 
         public async Task<PagoProveedoresDto[]> GetPagoOrdenesPorProveedor(int proveedorId)
         {
-            DateTime timeNow = DateTime.Now;
-            IQueryable<PagoProveedoresDto> query = (from ord in _context.orden
+             IQueryable<PagoProveedoresDto> query = (from ord in _context.orden
                                                    join prov in _context.proveedor on ord.proveedor_id equals prov.Id
                                                    join fp in _context.forma_pago on prov.forma_pago_id equals fp.Id
                                                    where (ord.proveedor_id == proveedorId || proveedorId == 0)
@@ -99,6 +98,38 @@ namespace CPP.Repository.Repository
                                                         forma_pago = fp.forma_pago
 
                                                    });
+
+            return await query.ToArrayAsync();
+        }
+
+        public async Task<PagoRemisionDto[]> GetPagoRemisiones(int proveedorId, int sucursalId)
+        {
+            IQueryable<PagoRemisionDto> query = (from rem in _context.remision
+                                                    join ord in _context.orden on rem.orden_id equals ord.Id
+                                                    join suc in _context.sucursal on rem.sucursal_id equals suc.Id
+                                                    join prov in _context.proveedor on rem.proveedor_id equals prov.Id
+                                                    join fp in _context.forma_pago on prov.forma_pago_id equals fp.Id
+
+                                                    where (ord.proveedor_id == proveedorId || proveedorId == 0)
+                                                        && (suc.Id == sucursalId || sucursalId == 0)
+                                                    select new PagoRemisionDto()
+                                                    {
+                                                        orden_id = ord.Id,
+                                                        proveedor = prov.nombre,
+                                                        fecha_alta = ord.fecha_alta,
+                                                        banco = ord.banco,
+                                                        fecha_pago = ord.fecha_pago,
+                                                        numero_cheque = ord.numero_cheque,
+                                                        fecha_credito =  rem.fecha_pago,
+                                                        numero_transferencia = ord.numero_transferencia,
+                                                        persona_recibe = ord.persona_recibe,
+                                                        usuario_alta = "Prueba",
+                                                        forma_pago = fp.forma_pago,
+                                                        sucursal = suc.nombre,
+                                                        persona_autoriza = ord.usuario_autoriza,
+                                                        numero_remision = rem.numero_remision
+                                                       
+                                                    });
 
             return await query.ToArrayAsync();
         }
