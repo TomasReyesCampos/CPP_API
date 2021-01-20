@@ -28,5 +28,7 @@ namespace CPP.Entities.Data
         [StringLength(25)]
         public string telefono { get; set; }
         public bool activo { get; set; }
+
+        public virtual Usuario usuario { get; set; }
     }
 }

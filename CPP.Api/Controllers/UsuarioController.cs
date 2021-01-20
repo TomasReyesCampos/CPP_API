@@ -131,7 +131,7 @@ namespace CPP.Api.Controllers
 
                 if (userName != null)
                 {
-                    erroDto.error = $"Ya existe una usuario con el user de {itemDto.user}, en la base de datos.";
+                    erroDto.error = $"Ya existe un usuario con el user de {itemDto.user}, en la base de datos.";
                     if (userName.Id != itemDto.Id) return BadRequest(erroDto);
                 }
 

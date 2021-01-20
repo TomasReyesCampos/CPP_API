@@ -13,7 +13,7 @@ namespace CPP.Entities.Data
         [Column("usuario_id")]
         public int Id { get; set; }
 
-        [Column("rol_id")]
+        [ForeignKey("rol")]
         public int rol_id { get; set; }
 
         [Column("usuario")]
@@ -30,6 +30,7 @@ namespace CPP.Entities.Data
 
         public bool activo { get; set; }
         public virtual Sucursal sucursal { get; set; }
+        public virtual Rol rol { get; set; }
  
         [NotMapped]
         public bool testing { get; set; }

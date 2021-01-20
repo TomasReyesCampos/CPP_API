@@ -22,6 +22,7 @@ namespace CPP.Repository.Context
         public DbSet<Ordenes> orden { get; set; }
         public DbSet<EstadoOrden> estado_orden { get; set; }
         public DbSet<Usuario> usuario { get; set; }
+        public DbSet<Rol> rol { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FormaPago>()
@@ -51,6 +52,15 @@ namespace CPP.Repository.Context
              modelBuilder.Entity<Proveedor>()
                 .HasMany(a => a.remisiones)
                 .WithOne(b => b.proveedor);
+
+            modelBuilder.Entity<Sucursal>()
+                .HasOne(a => a.usuario).WithOne(b=> b.sucursal)
+                .HasForeignKey<Usuario>(b => b.sucursal_id);
+
+            modelBuilder.Entity<Rol>()
+                .HasOne(a => a.usuario).WithOne(b => b.rol)
+                .HasForeignKey<Usuario>(b => b.rol_id);
+
 
         }
     }

@@ -39,6 +39,28 @@ namespace CPP.Repository.Repository
             return await query.FirstOrDefaultAsync();
         }
 
+        public async Task<AuthUserViewModel> AuthenticateUser(string user_name, string password)
+        {
+            IQueryable<AuthUserViewModel> query = from r in _context.usuario
+                                        join suc in _context.sucursal on r.sucursal_id equals suc.Id
+                                        join rol in _context.rol on r.rol_id equals rol.Id
+                                        where r.user == user_name && r.password == password
+                                        select new AuthUserViewModel
+                                        {
+                                            IsValid = true,
+                                            sucursal = new SucursalDto {
+                                                Id = suc.Id,
+                                                nombre = suc.nombre
+                                            },
+                                            Id = r.Id,
+                                            nombre = r.nombre,
+                                            rol = r.rol,
+                                            token = ""
+                                        };
+
+            return await query.FirstOrDefaultAsync();
+        }
+
         public async Task<UsuarioDto[]> GetUsuarios()
         {
             IQueryable<UsuarioDto> query = (from r in _context.usuario
@@ -48,7 +70,7 @@ namespace CPP.Repository.Repository
                                                 activo = r.activo,
                                                 Id = r.Id,
                                                 nombre = r.nombre,
-                                                rol = r.rol_id == 1 ? "Administrador" : "Usuario",
+                                                rol = r.rol,
                                                 password = r.password,
                                                 nombre_sucursal = s.nombre,
                                                 user  =r.user,

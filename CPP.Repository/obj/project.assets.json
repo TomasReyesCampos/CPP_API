@@ -3015,12 +3015,11 @@
       ]
     },
     "System.Net.NameResolution/4.3.0": {
-      "sha512": "AFYl08R7MrsrEjqpQWTZWBadqXyTzNDaWpMqyxhb0d6sGhV6xMDKueuBXlLL30gz+DIRY6MpdgnHWlCh5wmq9w==",
+      "sha512": "DPvMSdd32CbEOCTtOpO4nY9UvbP6LJe375F1yEQjy667WT5LEh1Ek2T4DSVw1STR0K3LSawWfBFwoeSG0TXFeA==",
       "type": "package",
       "path": "system.net.nameresolution/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5018,25 +5017,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ignacio.mariscal\\.nuget\\packages\\": {},
+    "C:\\Users\\tommy\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\CPP.Repository.csproj",
+      "projectUniqueName": "D:\\gitPersonal\\CPP_API\\CPP.Repository\\CPP.Repository.csproj",
       "projectName": "CPP.Repository",
-      "projectPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\CPP.Repository.csproj",
-      "packagesPath": "C:\\Users\\ignacio.mariscal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\obj\\",
+      "projectPath": "D:\\gitPersonal\\CPP_API\\CPP.Repository\\CPP.Repository.csproj",
+      "packagesPath": "C:\\Users\\tommy\\.nuget\\packages\\",
+      "outputPath": "D:\\gitPersonal\\CPP_API\\CPP.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ignacio.mariscal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5050,8 +5049,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj": {
-              "projectPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj"
+            "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj": {
+              "projectPath": "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj"
             }
           }
         }
@@ -5099,7 +5098,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

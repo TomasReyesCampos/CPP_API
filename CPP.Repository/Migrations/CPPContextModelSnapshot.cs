@@ -274,6 +274,26 @@ namespace CPP.Repository.Migrations
                     b.ToTable("remision");
                 });
 
+            modelBuilder.Entity("CPP.Entities.Data.Rol", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("rol_id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("activo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("descripcion")
+                        .HasColumnName("descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("rol");
+                });
+
             modelBuilder.Entity("CPP.Entities.Data.Sucursal", b =>
                 {
                     b.Property<int>("Id")
@@ -371,7 +391,6 @@ namespace CPP.Repository.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("rol_id")
-                        .HasColumnName("rol_id")
                         .HasColumnType("int");
 
                     b.Property<int>("sucursal_id")
@@ -383,7 +402,11 @@ namespace CPP.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("sucursal_id");
+                    b.HasIndex("rol_id")
+                        .IsUnique();
+
+                    b.HasIndex("sucursal_id")
+                        .IsUnique();
 
                     b.ToTable("usuario");
                 });
@@ -460,9 +483,15 @@ namespace CPP.Repository.Migrations
 
             modelBuilder.Entity("CPP.Entities.Data.Usuario", b =>
                 {
+                    b.HasOne("CPP.Entities.Data.Rol", "rol")
+                        .WithOne("usuario")
+                        .HasForeignKey("CPP.Entities.Data.Usuario", "rol_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CPP.Entities.Data.Sucursal", "sucursal")
-                        .WithMany()
-                        .HasForeignKey("sucursal_id")
+                        .WithOne("usuario")
+                        .HasForeignKey("CPP.Entities.Data.Usuario", "sucursal_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

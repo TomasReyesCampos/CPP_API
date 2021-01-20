@@ -15,5 +15,7 @@ namespace CPP.Repository.Interfaces
 
         Task<Usuario> GetUsuarioByName(string user_name);
 
+        Task<AuthUserViewModel> AuthenticateUser(string user_name, string password);
+
     }
 }

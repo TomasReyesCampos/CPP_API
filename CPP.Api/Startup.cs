@@ -15,6 +15,9 @@ using Microsoft.EntityFrameworkCore;
 using CPP.Repository.Repository;
 using AutoMapper;
 using CPP.Repository.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace CPP.Api
 {
@@ -31,6 +34,7 @@ namespace CPP.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("SecretKey"));
             services.AddControllers();
             services.AddMvc();
             services.AddDbContext<CPPContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CPPEntity")));
@@ -56,7 +60,24 @@ namespace CPP.Api
                                               .AllowAnyHeader();
                                   });
             });
-       
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             services.AddAutoMapper(typeof(Startup));
 
         }
@@ -70,7 +91,6 @@ namespace CPP.Api
             }
 
             app.UseRouting();
-
             app.UseAuthorization();
             app.UseCors(MyAllowSpecificOrigins);
 
