@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\gitPersonal\\CPP_API\\CPP.Api\\CPP.Api.csproj": {}
+    "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Api\\CPP.Api.csproj": {}
   },
   "projects": {
-    "D:\\gitPersonal\\CPP_API\\CPP.Api\\CPP.Api.csproj": {
+    "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Api\\CPP.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\gitPersonal\\CPP_API\\CPP.Api\\CPP.Api.csproj",
+        "projectUniqueName": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Api\\CPP.Api.csproj",
         "projectName": "CPP.Api",
-        "projectPath": "D:\\gitPersonal\\CPP_API\\CPP.Api\\CPP.Api.csproj",
-        "packagesPath": "C:\\Users\\tommy\\.nuget\\packages\\",
-        "outputPath": "D:\\gitPersonal\\CPP_API\\CPP.Api\\obj\\",
+        "projectPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Api\\CPP.Api.csproj",
+        "packagesPath": "C:\\Users\\ignacio.mariscal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ignacio.mariscal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,11 +32,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj": {
-                "projectPath": "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj"
+              "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj": {
+                "projectPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj"
               },
-              "D:\\gitPersonal\\CPP_API\\CPP.Repository\\CPP.Repository.csproj": {
-                "projectPath": "D:\\gitPersonal\\CPP_API\\CPP.Repository\\CPP.Repository.csproj"
+              "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\CPP.Repository.csproj": {
+                "projectPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\CPP.Repository.csproj"
               }
             }
           }
@@ -53,10 +53,6 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[3.1.11, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
@@ -76,17 +72,9 @@
               "target": "Package",
               "version": "[3.1.5, )"
             },
-            "Microsoft.IdentityModel.Tokens": {
-              "target": "Package",
-              "version": "[6.8.0, )"
-            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.4, )"
-            },
-            "System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[6.8.0, )"
             }
           },
           "imports": [
@@ -107,25 +95,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj": {
+    "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj",
         "projectName": "CPP.Entities",
-        "projectPath": "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj",
-        "packagesPath": "C:\\Users\\tommy\\.nuget\\packages\\",
-        "outputPath": "D:\\gitPersonal\\CPP_API\\CPP.Entities\\obj\\",
+        "projectPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj",
+        "packagesPath": "C:\\Users\\ignacio.mariscal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ignacio.mariscal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -149,14 +137,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.5, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -172,25 +152,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\gitPersonal\\CPP_API\\CPP.Repository\\CPP.Repository.csproj": {
+    "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\CPP.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\gitPersonal\\CPP_API\\CPP.Repository\\CPP.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\CPP.Repository.csproj",
         "projectName": "CPP.Repository",
-        "projectPath": "D:\\gitPersonal\\CPP_API\\CPP.Repository\\CPP.Repository.csproj",
-        "packagesPath": "C:\\Users\\tommy\\.nuget\\packages\\",
-        "outputPath": "D:\\gitPersonal\\CPP_API\\CPP.Repository\\obj\\",
+        "projectPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\CPP.Repository.csproj",
+        "packagesPath": "C:\\Users\\ignacio.mariscal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ignacio.mariscal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -204,8 +184,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj": {
-                "projectPath": "D:\\gitPersonal\\CPP_API\\CPP.Entities\\CPP.Entities.csproj"
+              "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj": {
+                "projectPath": "C:\\Users\\ignacio.mariscal\\Documents\\Personal\\Ortiz\\CPP.Api\\CPP.Entities\\CPP.Entities.csproj"
               }
             }
           }
@@ -253,7 +233,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

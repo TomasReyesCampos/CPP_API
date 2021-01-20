@@ -13,5 +13,7 @@ namespace CPP.Repository.Interfaces
         Task<ReporteVencidoDto[]> GetRemisionesPorVencer(int proveedorId, int sucursalId);
 
         Task<PagoProveedoresDto[]> GetPagoOrdenesPorProveedor(int proveedorId);
+
+        Task<PagoRemisionDto[]> GetPagoRemisiones(int proveedorId, int sucursalId);
     }
 }

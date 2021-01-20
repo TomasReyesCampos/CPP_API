@@ -78,5 +78,23 @@ namespace CPP.Api.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "DataBase Failure " + err.Message);
             }
         }
+
+
+
+        [HttpGet()]
+        [AllowAnonymous]
+        [Route("PagoRemisiones")]
+        public async Task<ActionResult<PagoRemisionDto[]>> GetPagoRemisionesAsync([FromQuery]int proveedorId, [FromQuery] int sucursalId)
+        {
+            try
+            {
+                var results = await _repository.GetPagoRemisiones(proveedorId, sucursalId);
+                return Ok(results);
+            }
+            catch (Exception err)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "DataBase Failure " + err.Message);
+            }
+        }
     }
 }
