@@ -80,5 +80,11 @@ namespace CPP.Repository.Repository
 
             return await query.ToArrayAsync();
         }
+
+        public async Task<Rol[]> GetRolsAsync()
+        {
+            var query = from r in _context.rol select r;
+            return await query.ToArrayAsync();
+        }
     }
 }
